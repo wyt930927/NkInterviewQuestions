@@ -30,10 +30,13 @@ def __parserHtml__(soup, url1, index):
                     file.add_paragraph(str(i) + '.' + soup1.select('.final-question')[0].text.replace('\n', ''))
                     print(str(i) + '.' + tag.text)
                     answers = soup1.select('.design-answer-box')[0]
-                    for txt in answers.select('p'):
-                        line = re.sub('<[^<]+?>', '', txt.text).replace('\n', '').strip()
-                        file.add_paragraph(line)
-                        print(line)
+                    if len(answers.select('p')) > 0:
+                        for txt in answers.select('p'):
+                            line = re.sub('<[^<]+?>', '', txt.text).strip()
+                            file.add_paragraph(line)
+                    else:
+                        file.add_paragraph(re.sub('<[^<]+?>', '', answers.text.strip()))
+                        # print(re.sub('<[^<]+?>', '', answers.text).replace('\n', '').strip())
     file.save("D:\\temp\\" + titles[index] + ".docx")
 
 
