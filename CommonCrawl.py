@@ -15,7 +15,7 @@ def __parserHtml__(soup, url1, index):
     i = 0
     pul = soup.select('.pagination ul')
     if len(pul) > 0:
-        page_total = int(pul[0]['data-total'])
+        page_total = int(pul[0]['data-total'])+1
         for page_now in range(1, page_total):
             if page_now != 1:
                 soup = __craw_html__(url1 + '?query=&asc=true&order=&page=' + str(page_now))
