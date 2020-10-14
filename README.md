@@ -1,11 +1,2 @@
-…or create a new repository on the command line
-echo "# NkInterviewQuestions" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/wyt930927/NkInterviewQuestions.git
-git push -u origin master
+### 牛客网面试题爬取
 
-…or push an existing repository from the command line
-git remote add origin https://github.com/wyt930927/NkInterviewQuestions.git
-git push -u origin master
